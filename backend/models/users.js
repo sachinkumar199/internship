@@ -30,7 +30,7 @@ const employeeSchema = new mongoose.Schema({
     required: true
   },
   profileImage: {
-    type: String // Store the path to the image file
+    type: String 
   }
 });
 

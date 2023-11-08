@@ -1,49 +1,48 @@
 import Users from "../models/users.js";
 
-// Make sure to replace this with your actual path to the model
-
 const registerEmployee = async (req, res) => {
   // Destructure the body data
   const { name, employeeId, email, phone, role, officeBranch, profileImagePath } = req.body;
-  
+
   // Check for missing fields
   if (!name || !employeeId || !email || !phone || !role || !officeBranch) {
     return res.status(422).json({ status: 422, error: "Please fill all the fields" });
   }
-  
+
   try {
-    // Check if employee already exists with the given email or employee ID
-    const employeeExists = await Users.findOne({ 
-      $or: [{ email: email }, { employeeId: employeeId }] 
+    // Check if an employee already exists with the given email or employee ID
+    const employeeExists = await Users.findOne({
+      $or: [{ email: email }, { employeeId: employeeId }]
     });
 
     if (employeeExists) {
-      return res.status(422).json({ error: "Employee already exists with given email or ID" });
+      return res.status(422).json({ error: "Employee already exists with the given email or ID" });
     }
 
-    // Create a new employee instance
-    const employee = new Users({ 
-      name, 
-      employeeId, 
-      email, 
-      phone, 
-      role, 
-      officeBranch, 
+    // Create a new employee instance (document)
+    const newEmployee = new Users({
+      name,
+      employeeId,
+      email,
+      phone,
+      role,
+      officeBranch,
+      profileImagePath
     });
 
     // Save the new employee to the database
-    await Users.save();
+    await newEmployee.save(); // Use the save method on the instance
 
     // Success response
     res.status(201).json({
-      success: true, 
+      success: true,
       Users: {
-        name: Users.name, 
-        enployeeId: Users.employeeId, 
-        email: Users.email, 
-        phone: Users.phone, 
-        role: Users.role, 
-        officeBranch: Users.officeBranch, 
+        name: newEmployee.name,
+        employeeId: newEmployee.employeeId,
+        email: newEmployee.email,
+        phone: newEmployee.phone,
+        role: newEmployee.role,
+        officeBranch: newEmployee.officeBranch,
       }
     });
   } catch (err) {
@@ -52,4 +51,4 @@ const registerEmployee = async (req, res) => {
   }
 };
 
-export {registerEmployee};
+export { registerEmployee };
