@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+
+
 const packingSchema = new mongoose.Schema({
          
     buyer: {
@@ -37,7 +39,7 @@ const packingSchema = new mongoose.Schema({
           length: { type: Number, required: true },
           height: { type: Number, required: true },
           width: { type: Number, required: true },
-          aql: { type: Number, required: true },
+          aql: { type: Number, required: true }, 
          assignfactory:[{
             name: { type: String, required: true }
          }]

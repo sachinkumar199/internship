@@ -1,5 +1,5 @@
 import express from 'express';
-import PurchaseOrder from '../models/purchaseOrder.js'; // Make sure to include the file extension if you're using ES modules
+import PurchaseOrder from '../models/purchaseOrder.js';
 
 const purchaseOrders = async (req, res) => {
   const {
