@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-
+import mongoose from "mongoose";
 const purchaseOrderSchema = new mongoose.Schema({
   buyer: {
     name: { type: String, required: true },
@@ -22,36 +21,45 @@ const purchaseOrderSchema = new mongoose.Schema({
   ],
   products: [
     {
-      styleId: String,
-      styleName: String,
-      quantity: Number,
-      color: String,
-      weight: Number,
-      length: Number,
-      height: Number,
-      width: Number,
-      aql: Number,
+      styleId: { type: String, required: true },
+      styleName: { type: String, required: true },
+      quantity: { type: Number, required: true },
+      color: { type: String, required: true },
+      weight: { type: Number, required: true },
+      length: { type: Number, required: true },
+      height: { type: Number, required: true },
+      width: { type: Number, required: true },
+      aql: { type: Number, required: true },
       weightTolerance: {
         type: Number,
+        required: true,
         min: -100,
         max: 100,
       },
       lengthTolerance: {
         type: Number,
+        required: true,
         min: -100,
         max: 100,
       },
       widthTolerance: {
         type: Number,
+        required: true,
         min: -100,
         max: 100,
       },
       heightTolerance: {
         type: Number,
+        required: true,
         min: -100,
         max: 100,
       },
     },
+  ],
+  comments: [
+    {
+      comment:String,
+    }
   ],
 });
 

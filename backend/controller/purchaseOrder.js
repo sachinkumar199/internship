@@ -7,7 +7,8 @@ const purchaseOrders = async (req, res) => {
     vendor,
     shipTo,
     assignedPeople,
-    products
+    products,
+    comments
   } = req.body;
 
   try {
@@ -20,7 +21,8 @@ const purchaseOrders = async (req, res) => {
       vendor,
       shipTo,
       assignedPeople,
-      products
+      products,
+      comments
     });
 
     await newPurchaseOrder.save();
