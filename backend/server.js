@@ -4,6 +4,8 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import router from './routes/auth.js'
+import axios from 'axios';
+import twilio from 'twilio';
 
 dotenv.config();
 
@@ -12,12 +14,13 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
 
+
+
+
 app.use(cors());
 app.use(express.json()); 
 
 app.use('/api',router);
-
-
 
 
 const uri = process.env.ATLAS_URI; // Connection string for MongoDB
