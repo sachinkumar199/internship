@@ -5,6 +5,7 @@ import {branch} from "../controller/branch.js"
 import {message} from "../controller/whatsapp.js"
 import { purchaseOrders } from "../controller/purchaseOrder.js";
 import { Packinglist } from "../controller/packing.js";
+import { companydetails } from "../controller/companydeails.js";
 
 
 const router = express.Router();
@@ -16,6 +17,7 @@ router.route("/branch").post(branch)
 router.route("/message").post(message)
 router.route("/purchaseOrder").post(purchaseOrders)
 router.route("/packinglist").post(Packinglist)
+router.route("/companydetails").post(companydetails)
 
 
 
