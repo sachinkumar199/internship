@@ -1,7 +1,6 @@
 import Users from "../models/users.js";
 
 const registerEmployee = async (req, res) => {
-  console.log(req.body); 
   // Destructure the body data
   const { name, employeeId, email, phone, role, officeBranch, profileImagePath } = req.body;
 

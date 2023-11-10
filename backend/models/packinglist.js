@@ -45,6 +45,32 @@ const packingSchema = new mongoose.Schema({
          }]
         },
       ],
+      drafts:{
+        type:Boolean,
+        default:false
+      },
+      pendingqc:{
+        type:Boolean,
+        default:false
+      },
+      scheduled:{
+        type:Boolean,
+        default:false
+      },
+      inprogress:{
+        type:Boolean,
+        default:false
+      },
+      pendingapproval:{
+        type:Boolean,
+        default:false
+      },
+      completed:{
+        type:Boolean,
+        default:false
+      }
+
+
 });
 
 const Packing = mongoose.model('Packing', packingSchema);
