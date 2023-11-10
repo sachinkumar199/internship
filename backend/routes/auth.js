@@ -8,6 +8,7 @@ import { Packinglist } from "../controller/packing.js";
 import { companydetails } from "../controller/companydeails.js";
 import { getEmployees } from "../controller/getemploye.js";
 import { deleteEmploye } from "../controller/deleteEmploye.js";
+import { getbranch } from "../controller/getbranch.js";
 
 
 const router = express.Router();
@@ -22,6 +23,7 @@ router.route("/packinglist").post(Packinglist)
 router.route("/companydetails").post(companydetails)
 router.route("/getEmployees").get(getEmployees);
 router.route("/deleteEmploye").delete(deleteEmploye)
+router.route("/getbranch").get(getbranch)
 
 
 
