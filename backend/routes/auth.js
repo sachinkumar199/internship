@@ -7,6 +7,7 @@ import { purchaseOrders } from "../controller/purchaseOrder.js";
 import { Packinglist } from "../controller/packing.js";
 import { companydetails } from "../controller/companydeails.js";
 import { getEmployees } from "../controller/getemploye.js";
+import { deleteEmploye } from "../controller/deleteEmploye.js";
 
 
 const router = express.Router();
@@ -20,6 +21,7 @@ router.route("/purchaseOrder").post(purchaseOrders)
 router.route("/packinglist").post(Packinglist)
 router.route("/companydetails").post(companydetails)
 router.route("/getEmployees").get(getEmployees);
+router.route("/deleteEmploye").delete(deleteEmploye)
 
 
 
