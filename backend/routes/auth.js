@@ -10,7 +10,7 @@ import { getEmployees } from "../controller/getemploye.js";
 import { deleteEmploye } from "../controller/deleteEmploye.js";
 import { getbranch } from "../controller/getbranch.js";
 import { getRole } from "../controller/getrole.js";
-
+import { updateEmploye } from "../controller/updateemploye.js";
 
 const router = express.Router();
 
@@ -26,6 +26,7 @@ router.route("/getEmployees").get(getEmployees);
 router.route("/deleteEmploye").delete(deleteEmploye)
 router.route("/getbranch").get(getbranch)
 router.route("/getrole").get(getRole)
+router.route("/updateEmploye/:id").put(updateEmploye)
 
 
 
