@@ -16,7 +16,7 @@ const purchaseOrderSchema = new mongoose.Schema({
   },
   assignedPeople: [
     {
-      name: { type: String, required: true },
+      email: { type: String, required: true },
     },
   ],
   products: [

@@ -1,38 +1,20 @@
 import express from 'express';
 import Companydetails from '../models/companydetails.js';
 
-
 // POST request to create a new company details record
-const companydetails =  async (req, res) => {
-  const {
-    name,
-    address,
-    country,
-    city,
-    pincode,
-    documentimage,
-    companyimage,
-  } = req.body;
+const companydetails = async (req, res) => {
+  const { formData, companyid } = req.body;
 
   try {
     // Validate required fields
-    if (!name || !address || !country || !city || !pincode) {
+    if (!companyid || !formData.name || !formData.address || !formData.country || !formData.city || !formData.pincode) {
       return res.status(422).json({ status: 422, error: 'Please provide all the necessary fields' });
     }
 
     const newCompanyDetails = new Companydetails({
-      name,
-      address,
-      country,
-      city,
-      pincode,
-      documentimage,
-      companyimage,
+      companyid,
+      ...formData,
     });
-
-    // const user = User.find({email}); 
-
-
 
     const savedCompanyDetails = await newCompanyDetails.save();
 
@@ -43,4 +25,4 @@ const companydetails =  async (req, res) => {
   }
 };
 
-export {companydetails};
+export { companydetails };

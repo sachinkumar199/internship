@@ -11,6 +11,9 @@ import { deleteEmploye } from "../controller/deleteEmploye.js";
 import { getbranch } from "../controller/getbranch.js";
 import { getRole } from "../controller/getrole.js";
 import { updateEmploye } from "../controller/updateemploye.js";
+import { payment } from "../controller/payment.js";
+import { register,verifyEmail } from "../controller/registration.js";
+import { login } from "../controller/login.js";
 
 const router = express.Router();
 
@@ -27,6 +30,12 @@ router.route("/deleteEmploye").delete(deleteEmploye)
 router.route("/getbranch").get(getbranch)
 router.route("/getrole").get(getRole)
 router.route("/updateEmploye/:id").put(updateEmploye)
+router.route("/payment").post(payment)
+router.route("/register").post(register)
+router.route("/register").post(register)
+router.route("/verify-email").post(verifyEmail)
+router.route("/login").post(login)
+
 
 
 

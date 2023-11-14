@@ -1,6 +1,11 @@
 import mongoose from "mongoose";
 
 const companydetailsSchema = new mongoose.Schema({
+  companyid:{
+   type:String,
+   required: true
+  },
+  
   name: {
     type: String,
     required: true
@@ -22,10 +27,10 @@ const companydetailsSchema = new mongoose.Schema({
     required: true
   },
   documentimage: {
-    type: String,
+    type: String,       // add required after getting storage
   },
   companyimage: {
-    type: String,
+    type: String,      // add required after getting storage 
   }
 });
 
